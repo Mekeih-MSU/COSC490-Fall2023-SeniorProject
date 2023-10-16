@@ -27,7 +27,7 @@ def create_contact(first_name, last_name, phone_number, email, public_key):
 		"Public Key": public_key,
 	}
 
-	add_contact(contact_entry, CONTACTS_KEY_FILE)
+	add_entry(contact_entry, CONTACTS_KEY_FILE)
 
 def add_entry(contact_entry, file):
 	data = load_data(file)
@@ -61,11 +61,11 @@ def encrypt_text(plaintext, recipient_key):
 		raise Exception(f"Encryption failed: {encrypted_data.status}")
 
 def decrypt_text(encrypted_text):
-    decrypted_data = GPG.decrypt(encrypted_text)
-    if decrypted_data.ok:
-    	return str(decrypted_data)
-    else:
-    	raise Exception(f"Decryption failed: {decrypted_data.status}")
+	decrypted_data = GPG.decrypt(encrypted_text)
+	if decrypted_data.ok:
+		return str(decrypted_data)
+	else:
+		raise Exception(f"Decryption failed: {decrypted_data.status}")
 
 
 # TEST GROUNDS ------------------------------->
@@ -108,5 +108,5 @@ print_page(CONTACTS_KEY_FILE)
 print("")
 
 print("After Delete")
-delete_contact(0)
+delete_entry(0, CONTACTS_KEY_FILE)
 print_page(CONTACTS_KEY_FILE)
