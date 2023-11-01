@@ -16,13 +16,13 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         super(PGPApp, self).__init__(parent)
         self.setupUi(self)
 
-		# Minimize Button
+        # Minimize Button
         self.minimize_btn.clicked.connect(lambda: self.showMinimized())
 
-		# Close Button
+        # Close Button
         self.close_btn.clicked.connect(lambda: self.close())
 
-		# Remove Default Window Box
+        # Remove Default Window Box
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
@@ -36,7 +36,7 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         # Apply Drop Shadow to Frame
         self.drop_window_frame.setGraphicsEffect(self.shadow)
 
-		# Move Window Function
+        # Move Window Function
         def moveWindow(event):
             if event.buttons() == QtCore.Qt.LeftButton:
                 self.move(self.pos() + event.globalPos() -self.dragPos)
@@ -80,7 +80,6 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
     def deleteContactClicked(self):
         selected_row = self.contact_table.currentRow()
         if selected_row >= 0:
-            print(selected_row)
             PGP_APP_ALGO.delete_entry(selected_row, "CONTACTS_KEYS.pkl")
     
     def update_contact_page_on_modified(self, event):
@@ -107,7 +106,6 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
     def deleteKeyClicked(self):
         selected_row = self.personal_key_table.currentRow()
         if selected_row >= 0:
-            print(selected_row)
             PGP_APP_ALGO.delete_entry(selected_row, "PERSONAL_KEYS.pkl")
     
     def update_key_page_on_modified(self, event):
