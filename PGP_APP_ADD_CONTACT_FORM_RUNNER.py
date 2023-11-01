@@ -5,6 +5,7 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 import PGP_APP_ADD_CONTACT_FORM
+import PGP_APP_ALGO
 
 class ContactPage(QtWidgets.QMainWindow, PGP_APP_ADD_CONTACT_FORM.Ui_MainWindow):
     def __init__(self, parent=None):
@@ -28,7 +29,7 @@ class ContactPage(QtWidgets.QMainWindow, PGP_APP_ADD_CONTACT_FORM.Ui_MainWindow)
         self.shadow.setYOffset(0)
         self.shadow.setColor(QColor(0, 0, 0, 200))
 
-        # Appy Drop Shadow to Frame
+        # Apply Drop Shadow to Frame
         self.drop_window_frame.setGraphicsEffect(self.shadow)
 
 		# Move Window Function
@@ -40,10 +41,34 @@ class ContactPage(QtWidgets.QMainWindow, PGP_APP_ADD_CONTACT_FORM.Ui_MainWindow)
 
         self.title_bar.mouseMoveEvent = moveWindow
 
+        # Contact Keys Page Button
+        self.add_contact_btn.clicked.connect(lambda: self.add_contact())
+
         self.show()
     
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
+
+    def add_contact(self):
+        first_name = self.first_name_line_edit.text()
+        last_name = self.last_name_line_edit.text()
+        phone_number = self.phone_number_line_edit.text()
+        email = self.email_line_edit.text()
+        pub_key = self.public_key_line_edit.text()
+
+        if first_name and last_name and phone_number and email and pub_key:
+            PGP_APP_ALGO.add_contact_key(
+                first_name,
+                last_name,
+                phone_number,
+                email,
+                pub_key)
+            
+            self.first_name_line_edit.clear()
+            self.last_name_line_edit.clear()
+            self.phone_number_line_edit.clear()
+            self.email_line_edit.clear()
+            self.public_key_line_edit.clear()
 
 def main():
     app = QApplication(sys.argv)
