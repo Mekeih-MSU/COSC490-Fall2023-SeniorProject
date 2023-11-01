@@ -252,7 +252,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.personal_key_table)
 
-        self.add_key_btn = QPushButton(self.personal_key_page)
+        self.personal_key_table_btn_frame = QFrame(self.personal_key_page)
+        self.personal_key_table_btn_frame.setObjectName(u"personal_key_table_btn_frame")
+        self.personal_key_table_btn_frame.setMinimumSize(QSize(0, 60))
+        self.personal_key_table_btn_frame.setFrameShape(QFrame.StyledPanel)
+        self.personal_key_table_btn_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.personal_key_table_btn_frame)
+        self.horizontalLayout_7.setSpacing(3)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.add_key_btn = QPushButton(self.personal_key_table_btn_frame)
         self.add_key_btn.setObjectName(u"add_key_btn")
         self.add_key_btn.setMinimumSize(QSize(250, 60))
         self.add_key_btn.setMaximumSize(QSize(16777215, 16777215))
@@ -270,7 +279,26 @@ class Ui_MainWindow(object):
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 180), stop:1 rgba(255, 255, 255, 255));\n"
 "}")
 
-        self.verticalLayout_6.addWidget(self.add_key_btn, 0, Qt.AlignHCenter)
+        self.horizontalLayout_7.addWidget(self.add_key_btn)
+
+        self.remove_personal_key_btn = QPushButton(self.personal_key_table_btn_frame)
+        self.remove_personal_key_btn.setObjectName(u"remove_personal_key_btn")
+        self.remove_personal_key_btn.setMinimumSize(QSize(0, 60))
+        self.remove_personal_key_btn.setStyleSheet(u"QPushButton {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 100), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: none;\n"
+"	padding-top: 5px;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 180), stop:1 rgba(255, 255, 255, 255));\n"
+"}")
+
+        self.horizontalLayout_7.addWidget(self.remove_personal_key_btn)
+
+
+        self.verticalLayout_6.addWidget(self.personal_key_table_btn_frame)
 
         self.stackedWidget.addWidget(self.personal_key_page)
         self.contact_key_page = QWidget()
@@ -304,7 +332,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.contact_table)
 
-        self.add_contact_btn = QPushButton(self.contact_key_page)
+        self.contact_table_btn_frame = QFrame(self.contact_key_page)
+        self.contact_table_btn_frame.setObjectName(u"contact_table_btn_frame")
+        self.contact_table_btn_frame.setMinimumSize(QSize(0, 60))
+        self.contact_table_btn_frame.setFrameShape(QFrame.StyledPanel)
+        self.contact_table_btn_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.contact_table_btn_frame)
+        self.horizontalLayout_6.setSpacing(3)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.add_contact_btn = QPushButton(self.contact_table_btn_frame)
         self.add_contact_btn.setObjectName(u"add_contact_btn")
         self.add_contact_btn.setMinimumSize(QSize(250, 60))
         self.add_contact_btn.setMaximumSize(QSize(16777215, 16777215))
@@ -319,7 +356,26 @@ class Ui_MainWindow(object):
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 180), stop:1 rgba(255, 255, 255, 255));\n"
 "}")
 
-        self.verticalLayout_7.addWidget(self.add_contact_btn, 0, Qt.AlignHCenter)
+        self.horizontalLayout_6.addWidget(self.add_contact_btn)
+
+        self.remove_contact_btn = QPushButton(self.contact_table_btn_frame)
+        self.remove_contact_btn.setObjectName(u"remove_contact_btn")
+        self.remove_contact_btn.setMinimumSize(QSize(250, 60))
+        self.remove_contact_btn.setStyleSheet(u"QPushButton {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 100), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: none;\n"
+"	padding-top: 5px;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 180), stop:1 rgba(255, 255, 255, 255));\n"
+"}")
+
+        self.horizontalLayout_6.addWidget(self.remove_contact_btn)
+
+
+        self.verticalLayout_7.addWidget(self.contact_table_btn_frame)
 
         self.stackedWidget.addWidget(self.contact_key_page)
 
@@ -400,6 +456,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem2 = self.personal_key_table.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Private Key", None));
         self.add_key_btn.setText(QCoreApplication.translate("MainWindow", u"ADD KEY", None))
+        self.remove_personal_key_btn.setText(QCoreApplication.translate("MainWindow", u"REMOVE", None))
         ___qtablewidgetitem3 = self.contact_table.horizontalHeaderItem(0)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"First Name", None));
         ___qtablewidgetitem4 = self.contact_table.horizontalHeaderItem(1)
@@ -411,6 +468,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem7 = self.contact_table.horizontalHeaderItem(4)
         ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
         self.add_contact_btn.setText(QCoreApplication.translate("MainWindow", u"ADD CONTACT", None))
+        self.remove_contact_btn.setText(QCoreApplication.translate("MainWindow", u"REMOVE", None))
         self.credits_label.setText(QCoreApplication.translate("MainWindow", u"By: Mekeih Nelson, Gareth Nuyit, Darrius Outlaw, Kye Toussant", None))
     # retranslateUi
 
