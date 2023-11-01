@@ -242,6 +242,13 @@ class Ui_MainWindow(object):
         __qtablewidgetitem2 = QTableWidgetItem()
         self.personal_key_table.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         self.personal_key_table.setObjectName(u"personal_key_table")
+        self.personal_key_table.setStyleSheet(u"QTableWidget::item {\n"
+"	background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #ADD8E6;\n"
+"}")
 
         self.verticalLayout_6.addWidget(self.personal_key_table)
 
@@ -287,6 +294,13 @@ class Ui_MainWindow(object):
         __qtablewidgetitem7 = QTableWidgetItem()
         self.contact_table.setHorizontalHeaderItem(4, __qtablewidgetitem7)
         self.contact_table.setObjectName(u"contact_table")
+        self.contact_table.setStyleSheet(u"QTableWidget::item {\n"
+"	background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #ADD8E6;\n"
+"}")
 
         self.verticalLayout_7.addWidget(self.contact_table)
 
@@ -364,7 +378,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
