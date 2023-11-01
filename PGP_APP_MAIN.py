@@ -46,6 +46,7 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         # Personal Keys Page Button
         self.personal_btn_page.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.personal_key_page))
         self.add_key_btn.clicked.connect(lambda: PGP_APP_ADD_KEY_FORM_RUNNER.KeyPage())
+        self.loadKeyPage()
 
         # Contact Keys Page Button
         self.contacts_btn_page.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.contact_key_page))
@@ -62,11 +63,21 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         row = 0
         self.contact_table.setRowCount(len(data))
         for entry in data:
-            self.contact_table.setItem(row, 0, QtWidgets.QTableWidgetItem(data["First Name"]))
-            self.contact_table.setItem(row, 1, QtWidgets.QTableWidgetItem(data["Last Name"]))
-            self.contact_table.setItem(row, 2, QtWidgets.QTableWidgetItem(data["Phone Number"]))
-            self.contact_table.setItem(row, 3, QtWidgets.QTableWidgetItem(data["Email"]))
-            self.contact_table.setItem(row, 4, QtWidgets.QTableWidgetItem(data["Public Key"]))
+            self.contact_table.setItem(row, 0, QtWidgets.QTableWidgetItem(entry["First Name"]))
+            self.contact_table.setItem(row, 1, QtWidgets.QTableWidgetItem(entry["Last Name"]))
+            self.contact_table.setItem(row, 2, QtWidgets.QTableWidgetItem(entry["Phone Number"]))
+            self.contact_table.setItem(row, 3, QtWidgets.QTableWidgetItem(entry["Email"]))
+            self.contact_table.setItem(row, 4, QtWidgets.QTableWidgetItem(entry["Public Key"]))
+            row += 1
+    
+    def loadKeyPage(self):
+        data = PGP_APP_ALGO.load_data("PERSONAL_KEYS.pkl")
+        row = 0
+        self.personal_key_table.setRowCount(len(data))
+        for entry in data:
+            self.personal_key_table.setItem(row, 0, QtWidgets.QTableWidgetItem(entry["Name"]))
+            self.personal_key_table.setItem(row, 1, QtWidgets.QTableWidgetItem(entry["Public Key"]))
+            self.personal_key_table.setItem(row, 2, QtWidgets.QTableWidgetItem(entry["Private Key"]))
             row += 1
 
 def main():
