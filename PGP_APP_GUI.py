@@ -225,46 +225,87 @@ class Ui_MainWindow(object):
 
         self.stackedWidget = QStackedWidget(self.key_collection_frame)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setStyleSheet(u"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));")
         self.personal_key_page = QWidget()
         self.personal_key_page.setObjectName(u"personal_key_page")
-        self.horizontalLayout_7 = QHBoxLayout(self.personal_key_page)
-        self.horizontalLayout_7.setSpacing(0)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.tableWidget_2 = QTableWidget(self.personal_key_page)
-        if (self.tableWidget_2.columnCount() < 3):
-            self.tableWidget_2.setColumnCount(3)
+        self.verticalLayout_6 = QVBoxLayout(self.personal_key_page)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.personal_key_table = QTableWidget(self.personal_key_page)
+        if (self.personal_key_table.columnCount() < 3):
+            self.personal_key_table.setColumnCount(3)
         __qtablewidgetitem = QTableWidgetItem()
-        self.tableWidget_2.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        self.personal_key_table.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableWidget_2.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.personal_key_table.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableWidget_2.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        self.tableWidget_2.setObjectName(u"tableWidget_2")
+        self.personal_key_table.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        self.personal_key_table.setObjectName(u"personal_key_table")
 
-        self.horizontalLayout_7.addWidget(self.tableWidget_2)
+        self.verticalLayout_6.addWidget(self.personal_key_table)
+
+        self.add_key_btn = QPushButton(self.personal_key_page)
+        self.add_key_btn.setObjectName(u"add_key_btn")
+        self.add_key_btn.setMinimumSize(QSize(250, 60))
+        self.add_key_btn.setMaximumSize(QSize(16777215, 16777215))
+        font2 = QFont()
+        font2.setPointSize(8)
+        self.add_key_btn.setFont(font2)
+        self.add_key_btn.setStyleSheet(u"QPushButton {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 100), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: none;\n"
+"	padding-top: 5px;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 180), stop:1 rgba(255, 255, 255, 255));\n"
+"}")
+
+        self.verticalLayout_6.addWidget(self.add_key_btn, 0, Qt.AlignHCenter)
 
         self.stackedWidget.addWidget(self.personal_key_page)
         self.contact_key_page = QWidget()
         self.contact_key_page.setObjectName(u"contact_key_page")
-        self.horizontalLayout_6 = QHBoxLayout(self.contact_key_page)
-        self.horizontalLayout_6.setSpacing(0)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.tableWidget = QTableWidget(self.contact_key_page)
-        if (self.tableWidget.columnCount() < 4):
-            self.tableWidget.setColumnCount(4)
+        self.contact_key_page.setStyleSheet(u"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));")
+        self.verticalLayout_7 = QVBoxLayout(self.contact_key_page)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.contact_table = QTableWidget(self.contact_key_page)
+        if (self.contact_table.columnCount() < 5):
+            self.contact_table.setColumnCount(5)
         __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem3)
+        self.contact_table.setHorizontalHeaderItem(0, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem4)
+        self.contact_table.setHorizontalHeaderItem(1, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem5)
+        self.contact_table.setHorizontalHeaderItem(2, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem6)
-        self.tableWidget.setObjectName(u"tableWidget")
+        self.contact_table.setHorizontalHeaderItem(3, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.contact_table.setHorizontalHeaderItem(4, __qtablewidgetitem7)
+        self.contact_table.setObjectName(u"contact_table")
 
-        self.horizontalLayout_6.addWidget(self.tableWidget)
+        self.verticalLayout_7.addWidget(self.contact_table)
+
+        self.add_contact_btn = QPushButton(self.contact_key_page)
+        self.add_contact_btn.setObjectName(u"add_contact_btn")
+        self.add_contact_btn.setMinimumSize(QSize(250, 60))
+        self.add_contact_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.add_contact_btn.setStyleSheet(u"QPushButton {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 100), stop:1 rgba(255, 255, 255, 255));\n"
+"	border: none;\n"
+"	padding-top: 5px;\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:0, stop:0 rgba(185, 185, 185, 180), stop:1 rgba(255, 255, 255, 255));\n"
+"}")
+
+        self.verticalLayout_7.addWidget(self.add_contact_btn, 0, Qt.AlignHCenter)
 
         self.stackedWidget.addWidget(self.contact_key_page)
 
@@ -323,7 +364,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -338,20 +379,24 @@ class Ui_MainWindow(object):
         self.decrypt_btn.setText(QCoreApplication.translate("MainWindow", u"DECRYPT", None))
         self.personal_btn_page.setText(QCoreApplication.translate("MainWindow", u"KEYS", None))
         self.contacts_btn_page.setText(QCoreApplication.translate("MainWindow", u"CONTACTS", None))
-        ___qtablewidgetitem = self.tableWidget_2.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"#", None));
-        ___qtablewidgetitem1 = self.tableWidget_2.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"New Column", None));
-        ___qtablewidgetitem2 = self.tableWidget_2.horizontalHeaderItem(2)
+        ___qtablewidgetitem = self.personal_key_table.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Name", None));
+        ___qtablewidgetitem1 = self.personal_key_table.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
+        ___qtablewidgetitem2 = self.personal_key_table.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Private Key", None));
-        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(0)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Name", None));
-        ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Phone #", None));
-        ___qtablewidgetitem5 = self.tableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Email", None));
-        ___qtablewidgetitem6 = self.tableWidget.horizontalHeaderItem(3)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
+        self.add_key_btn.setText(QCoreApplication.translate("MainWindow", u"ADD KEY", None))
+        ___qtablewidgetitem3 = self.contact_table.horizontalHeaderItem(0)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"First Name", None));
+        ___qtablewidgetitem4 = self.contact_table.horizontalHeaderItem(1)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Last Name", None));
+        ___qtablewidgetitem5 = self.contact_table.horizontalHeaderItem(2)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Phone #", None));
+        ___qtablewidgetitem6 = self.contact_table.horizontalHeaderItem(3)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Email", None));
+        ___qtablewidgetitem7 = self.contact_table.horizontalHeaderItem(4)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
+        self.add_contact_btn.setText(QCoreApplication.translate("MainWindow", u"ADD CONTACT", None))
         self.credits_label.setText(QCoreApplication.translate("MainWindow", u"By: Mekeih Nelson, Gareth Nuyit, Darrius Outlaw, Kye Toussant", None))
     # retranslateUi
 
