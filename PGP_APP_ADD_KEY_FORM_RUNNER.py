@@ -5,6 +5,7 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 import PGP_APP_ADD_KEY_FORM
+import PGP_APP_ALGO
 
 class KeyPage(QtWidgets.QMainWindow, PGP_APP_ADD_KEY_FORM.Ui_MainWindow):
     def __init__(self, parent=None):
@@ -28,7 +29,7 @@ class KeyPage(QtWidgets.QMainWindow, PGP_APP_ADD_KEY_FORM.Ui_MainWindow):
         self.shadow.setYOffset(0)
         self.shadow.setColor(QColor(0, 0, 0, 200))
 
-        # Appy Drop Shadow to Frame
+        # Apply Drop Shadow to Frame
         self.drop_window_frame.setGraphicsEffect(self.shadow)
 
 		# Move Window Function
@@ -40,7 +41,17 @@ class KeyPage(QtWidgets.QMainWindow, PGP_APP_ADD_KEY_FORM.Ui_MainWindow):
 
         self.title_bar.mouseMoveEvent = moveWindow
 
+        # Personal Keys Page Button
+        self.add_key_btn.clicked.connect(lambda: self.add_personal_key())
+
         self.show()
+    
+    def add_personal_key(self):
+        name = self.name_line_edit.text()
+        if name:
+            PGP_APP_ALGO.add_personal_key(name)
+            self.name_line_edit.clear()
+
     
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
