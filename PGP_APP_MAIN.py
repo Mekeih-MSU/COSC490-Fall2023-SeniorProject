@@ -82,7 +82,6 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         if selected_row >= 0:
             print(selected_row)
             PGP_APP_ALGO.delete_entry(selected_row, "CONTACTS_KEYS.pkl")
-            #self.loadContactPage()
     
     def update_contact_page_on_modified(self, event):
         self.loadContactPage()
@@ -110,7 +109,6 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         if selected_row >= 0:
             print(selected_row)
             PGP_APP_ALGO.delete_entry(selected_row, "PERSONAL_KEYS.pkl")
-            self.loadKeyPage()
     
     def update_key_page_on_modified(self, event):
         self.loadKeyPage()
