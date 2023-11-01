@@ -18,8 +18,8 @@ def load_data(filename):
     except FileNotFoundError:
         return []
 
-def create_contact(first_name, last_name, phone_number, email, public_key):
-	contact_entry = {
+def add_contact_key(first_name, last_name, phone_number, email, public_key):
+	file_entry = {
 		"First Name": first_name,
 		"Last Name": last_name,
 		"Phone Number": phone_number,
@@ -27,7 +27,20 @@ def create_contact(first_name, last_name, phone_number, email, public_key):
 		"Public Key": public_key,
 	}
 
-	add_entry(contact_entry, CONTACTS_KEY_FILE)
+	add_entry(file_entry, CONTACTS_KEY_FILE)
+
+def add_personal_key(name):
+	key_pair = create_asymmetric_key()
+	public_key = get_public_key(key_pair)
+	private_key = get_private_key(key_pair)
+
+	file_entry = {
+		"Name": name,
+		"Public Key": public_key,
+		"Private Key": private_key,
+	}
+
+	add_entry(file_entry, PERSONAL_KEY_FILE)
 
 def add_entry(contact_entry, file):
 	data = load_data(file)
@@ -39,6 +52,11 @@ def delete_entry(index, file):
 	if (0 <= index < len(data)):
 		data.pop(index)
 		save_data(data, file)
+
+def print_page(file):
+	data = load_data(file)
+	for i in range(len(data)):
+		print(f"#{i}: {data[i]}")
 
 
 # PGP ALGO ------------------------------->
@@ -69,44 +87,3 @@ def decrypt_text(encrypted_text):
 
 
 # TEST GROUNDS ------------------------------->
-
-"""
-key = create_asymmetric_key()
-
-public_key = get_public_key(key)
-print(public_key)
-
-private_key = get_private_key(key)
-print(private_key)
-print("")
-
-text = "Hello, how are you!"
-en_t = encrypt_text(text, key.fingerprint)
-de_t = decrypt_text(en_t)
-
-print(text)
-print(en_t)
-print(de_t)
-"""
-
-def print_page(file):
-	data = load_data(file)
-	for i in range(len(data)):
-		print(f"#{i}: {data[i]}")
-
-"""
-create_contact(
-	first_name="Mekeih", 
-	last_name="Nelson", 
-	phone_number="12345", 
-	email="test@email.com", 
-	public_key="pub_key",
-	)
-"""
-print("Before Delete")
-print_page(CONTACTS_KEY_FILE)
-print("")
-
-print("After Delete")
-delete_entry(0, CONTACTS_KEY_FILE)
-print_page(CONTACTS_KEY_FILE)
