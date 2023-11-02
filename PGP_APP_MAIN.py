@@ -10,6 +10,7 @@ import PGP_APP_ADD_KEY_FORM_RUNNER
 import PGP_APP_ALGO
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+import win32clipboard
 
 class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
     def __init__(self, parent=None):
@@ -58,6 +59,12 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         self.remove_contact_btn.clicked.connect(lambda: self.deleteContactClicked())
         self.loadContactPage()
         self.start_contact_file_monitoring()
+
+        # Encrypt Button
+        self.encrypt_btn.clicked.connect(lambda: self.ui_encrypt_text())
+
+        # Decrypt Button
+        self.decrypt_btn.clicked.connect(lambda: self.ui_decrypt_text())
 
         self.show()
     
@@ -118,6 +125,34 @@ class PGPApp(QtWidgets.QMainWindow, PGP_APP_GUI.Ui_MainWindow):
         observer = Observer()
         observer.schedule(event_handler, path='.', recursive=False)
         observer.start()
+
+    def ui_encrypt_text(self):
+        selected_row = self.contact_table.currentRow()
+        if selected_row >= 0:
+            print("encrypt_text button pushed!, row: " + str(selected_row))
+            win32clipboard.OpenClipboard()
+            data = win32clipboard.GetClipboardData()
+            print("cur clipboard: " + data)
+            win32clipboard.EmptyClipboard()
+
+            encrypted_data = "encrypted_data was added!"
+            win32clipboard.SetClipboardText(encrypted_data)
+            win32clipboard.CloseClipboard()
+            print("")
+
+    def ui_decrypt_text(self):
+        print("decrypt_text button pushed!")
+        win32clipboard.OpenClipboard()
+        data = win32clipboard.GetClipboardData()
+        print("cur clipboard: " + data)
+
+        if "-----BEGIN PGP MESSAGE-----" in data:
+            win32clipboard.EmptyClipboard()
+            decrypted_data = "decrypted_data was added!"
+            win32clipboard.SetClipboardText(decrypted_data)
+
+        win32clipboard.CloseClipboard()
+        print("")
 
 def main():
     app = QApplication(sys.argv)
