@@ -233,14 +233,16 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.personal_key_table = QTableWidget(self.personal_key_page)
-        if (self.personal_key_table.columnCount() < 3):
-            self.personal_key_table.setColumnCount(3)
+        if (self.personal_key_table.columnCount() < 4):
+            self.personal_key_table.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         self.personal_key_table.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.personal_key_table.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
         self.personal_key_table.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.personal_key_table.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.personal_key_table.setObjectName(u"personal_key_table")
         self.personal_key_table.setStyleSheet(u"QTableWidget::item {\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -311,18 +313,18 @@ class Ui_MainWindow(object):
         self.contact_table = QTableWidget(self.contact_key_page)
         if (self.contact_table.columnCount() < 6):
             self.contact_table.setColumnCount(6)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.contact_table.setHorizontalHeaderItem(0, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
-        self.contact_table.setHorizontalHeaderItem(1, __qtablewidgetitem4)
+        self.contact_table.setHorizontalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
-        self.contact_table.setHorizontalHeaderItem(2, __qtablewidgetitem5)
+        self.contact_table.setHorizontalHeaderItem(1, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
-        self.contact_table.setHorizontalHeaderItem(3, __qtablewidgetitem6)
+        self.contact_table.setHorizontalHeaderItem(2, __qtablewidgetitem6)
         __qtablewidgetitem7 = QTableWidgetItem()
-        self.contact_table.setHorizontalHeaderItem(4, __qtablewidgetitem7)
+        self.contact_table.setHorizontalHeaderItem(3, __qtablewidgetitem7)
         __qtablewidgetitem8 = QTableWidgetItem()
-        self.contact_table.setHorizontalHeaderItem(5, __qtablewidgetitem8)
+        self.contact_table.setHorizontalHeaderItem(4, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.contact_table.setHorizontalHeaderItem(5, __qtablewidgetitem9)
         self.contact_table.setObjectName(u"contact_table")
         self.contact_table.setStyleSheet(u"QTableWidget::item {\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -436,7 +438,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -457,20 +459,22 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
         ___qtablewidgetitem2 = self.personal_key_table.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Private Key", None));
+        ___qtablewidgetitem3 = self.personal_key_table.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Fingerprint", None));
         self.add_key_btn.setText(QCoreApplication.translate("MainWindow", u"ADD KEY", None))
         self.remove_personal_key_btn.setText(QCoreApplication.translate("MainWindow", u"REMOVE", None))
-        ___qtablewidgetitem3 = self.contact_table.horizontalHeaderItem(0)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"First Name", None));
-        ___qtablewidgetitem4 = self.contact_table.horizontalHeaderItem(1)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Last Name", None));
-        ___qtablewidgetitem5 = self.contact_table.horizontalHeaderItem(2)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Phone #", None));
-        ___qtablewidgetitem6 = self.contact_table.horizontalHeaderItem(3)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Email", None));
-        ___qtablewidgetitem7 = self.contact_table.horizontalHeaderItem(4)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
-        ___qtablewidgetitem8 = self.contact_table.horizontalHeaderItem(5)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Fingerprint", None));
+        ___qtablewidgetitem4 = self.contact_table.horizontalHeaderItem(0)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"First Name", None));
+        ___qtablewidgetitem5 = self.contact_table.horizontalHeaderItem(1)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Last Name", None));
+        ___qtablewidgetitem6 = self.contact_table.horizontalHeaderItem(2)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Phone #", None));
+        ___qtablewidgetitem7 = self.contact_table.horizontalHeaderItem(3)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Email", None));
+        ___qtablewidgetitem8 = self.contact_table.horizontalHeaderItem(4)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
+        ___qtablewidgetitem9 = self.contact_table.horizontalHeaderItem(5)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Fingerprint", None));
         self.add_contact_btn.setText(QCoreApplication.translate("MainWindow", u"ADD CONTACT", None))
         self.remove_contact_btn.setText(QCoreApplication.translate("MainWindow", u"REMOVE", None))
         self.credits_label.setText(QCoreApplication.translate("MainWindow", u"By: Mekeih Nelson, Gareth Nuyit, Darrius Outlaw, Kye Toussant", None))
