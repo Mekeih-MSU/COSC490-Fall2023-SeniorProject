@@ -194,6 +194,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.public_key_line_edit, 0, Qt.AlignHCenter)
 
+        self.fingerprint_label = QLabel(self.content_bar)
+        self.fingerprint_label.setObjectName(u"fingerprint_label")
+        self.fingerprint_label.setMinimumSize(QSize(30, 0))
+        self.fingerprint_label.setMaximumSize(QSize(100, 20))
+        self.fingerprint_label.setFont(font2)
+        self.fingerprint_label.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        self.verticalLayout_4.addWidget(self.fingerprint_label, 0, Qt.AlignHCenter)
+
+        self.fingerprint_line_edit = QLineEdit(self.content_bar)
+        self.fingerprint_line_edit.setObjectName(u"fingerprint_line_edit")
+        self.fingerprint_line_edit.setMinimumSize(QSize(400, 25))
+        self.fingerprint_line_edit.setMaximumSize(QSize(400, 25))
+
+        self.verticalLayout_4.addWidget(self.fingerprint_line_edit, 0, Qt.AlignHCenter)
+
         self.add_contact_btn = QPushButton(self.content_bar)
         self.add_contact_btn.setObjectName(u"add_contact_btn")
         self.add_contact_btn.setEnabled(True)
@@ -275,6 +291,7 @@ class Ui_MainWindow(object):
         self.phone_number_label.setText(QCoreApplication.translate("MainWindow", u"Phone #:", None))
         self.email_label.setText(QCoreApplication.translate("MainWindow", u"email:", None))
         self.public_key_label.setText(QCoreApplication.translate("MainWindow", u"Public Key:", None))
+        self.fingerprint_label.setText(QCoreApplication.translate("MainWindow", u"Fingerprint:", None))
         self.add_contact_btn.setText(QCoreApplication.translate("MainWindow", u"ADD CONTACT", None))
         self.credits_label.setText(QCoreApplication.translate("MainWindow", u"By: Mekeih Nelson, Gareth Nuyit, Darrius Outlaw, Kye Toussant", None))
     # retranslateUi
