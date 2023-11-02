@@ -309,8 +309,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
         self.contact_table = QTableWidget(self.contact_key_page)
-        if (self.contact_table.columnCount() < 5):
-            self.contact_table.setColumnCount(5)
+        if (self.contact_table.columnCount() < 6):
+            self.contact_table.setColumnCount(6)
         __qtablewidgetitem3 = QTableWidgetItem()
         self.contact_table.setHorizontalHeaderItem(0, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
@@ -321,6 +321,8 @@ class Ui_MainWindow(object):
         self.contact_table.setHorizontalHeaderItem(3, __qtablewidgetitem6)
         __qtablewidgetitem7 = QTableWidgetItem()
         self.contact_table.setHorizontalHeaderItem(4, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.contact_table.setHorizontalHeaderItem(5, __qtablewidgetitem8)
         self.contact_table.setObjectName(u"contact_table")
         self.contact_table.setStyleSheet(u"QTableWidget::item {\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -434,7 +436,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -467,6 +469,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Email", None));
         ___qtablewidgetitem7 = self.contact_table.horizontalHeaderItem(4)
         ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Public Key", None));
+        ___qtablewidgetitem8 = self.contact_table.horizontalHeaderItem(5)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Fingerprint", None));
         self.add_contact_btn.setText(QCoreApplication.translate("MainWindow", u"ADD CONTACT", None))
         self.remove_contact_btn.setText(QCoreApplication.translate("MainWindow", u"REMOVE", None))
         self.credits_label.setText(QCoreApplication.translate("MainWindow", u"By: Mekeih Nelson, Gareth Nuyit, Darrius Outlaw, Kye Toussant", None))
