@@ -1,5 +1,7 @@
 # COSC490-Fall2023-SeniorProject
 
+FULL DOCUMENTATION: https://docs.google.com/document/d/1i65OtDzVGEYo1hSlPzEFQIuFQOa07WLEXMcyi36Gj4A/edit?usp=sharing
+
 1. Introduction 
 Welcome to the PGP App! This application allows you to easily manage your PGP (Pretty Good Privacy) keys, securely communicate with your contacts, and protect your sensitive information.
 
